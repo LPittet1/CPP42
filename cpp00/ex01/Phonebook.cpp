@@ -44,7 +44,7 @@ void	Phonebook::search()
 		}
 		j++;
 	}
-	int ind = std::stoi(i);
+	int ind = std::atoi(i.c_str());
 	if (ind < 0 || ind > 7 || book[ind].getFirstName().empty())
 			std::cout << "invalid index" << std::endl;
 	else
