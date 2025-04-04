@@ -10,18 +10,23 @@ class Contact {
         std::string FirstName;
         std::string LastName;
         std::string Nickname;
-        int PhoneNumber;
+        std::string PhoneNumber;
         std::string Secret;
 
     public :
         Contact(void);
         ~Contact(void);
-        std::string   GetFirstName();
-        std::string   GetLastName();
-        std::string   GetNickname();
-        int           GetPhoneNumber();
-        std::string   GetSecret();
-
+		void		  print_contact();
+		std::string getFirstName();
+		std::string getLastName();
+		std::string getNickname();
+		std::string	getPhoneNumber();
+		std::string getSecret();
+		void setFirstName();
+		void setLastName();
+		void setNickname();
+		void setPhoneNumber();
+		void setSecret();
 };
 
 #endif
