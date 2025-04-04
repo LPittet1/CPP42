@@ -105,7 +105,7 @@ void Contact::setPhoneNumber()
 			setPhoneNumber();
 		return ;
 	}
-	for (int i = 0; i < Number.length(); i++)
+	for (size_t i = 0; i < Number.length(); i++)
 	{
 		if (!isdigit(Number[i]))
 		{
