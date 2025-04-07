@@ -40,7 +40,6 @@ void	Phonebook::search()
 		if (!std::isdigit(i[j]))
 		{
 			std::cout << "invalid index" << std::endl;
-			search();
 			return ;
 		}
 		j++;
@@ -49,7 +48,6 @@ void	Phonebook::search()
 	if (ind < 0 || ind > 7 || book[ind].getFirstName().empty())
 	{
 			std::cout << "invalid index" << std::endl;
-			search();
 			return ;
 	}
 	else

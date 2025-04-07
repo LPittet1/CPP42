@@ -9,7 +9,7 @@ int main()
 		std::cout << "Enter a command : ADD, SEARCH, EXIT : ";
 		std::string cmd;
 		getline(std::cin, cmd);
-		if (cmd.empty())
+		if (std::cin.eof())
 		{
 			std::cout << std::endl << "Stop trying to mess with the phonebook!" << std::endl;
 			break;
