@@ -37,7 +37,7 @@ void	Phonebook::search()
 		return ;
 	while (i[j])
 	{
-		if (!isdigit(i[j]))
+		if (!std::isdigit(i[j]))
 		{
 			std::cout << "invalid index" << std::endl;
 			search();
@@ -47,7 +47,11 @@ void	Phonebook::search()
 	}
 	int ind = atoi(i.c_str());
 	if (ind < 0 || ind > 7 || book[ind].getFirstName().empty())
+	{
 			std::cout << "invalid index" << std::endl;
+			search();
+			return ;
+	}
 	else
 		book[ind].print_contact();
 }
