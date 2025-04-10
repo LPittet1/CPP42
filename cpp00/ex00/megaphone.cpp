@@ -1,23 +1,18 @@
 #include <iostream>
+#include <string>
+#include <algorithm>
 
 int	main(int ac, char **av)
 {
-	int i = 1;
-	int j;
-
 	if (ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 	{
-		while (av[i])
+		for (int i = 1; i < ac; i++)
 		{
-			j = 0;
-			while (av[i][j])
-			{
-				std::cout << (char)std::toupper(av[i][j]);
-				j++;
-			}
-			i++;
+			std::string str = av[i];
+			std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+			std::cout << str;
 		}
 		std::cout << std::endl;
 	}
