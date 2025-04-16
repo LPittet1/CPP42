@@ -13,8 +13,6 @@ public:
 	Point(const Point& cpy);
 	Point& operator=(Point& cpy);
 	~Point();
-	Fixed getX() const;
-	Fixed getY() const;
 };
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);

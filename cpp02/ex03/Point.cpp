@@ -25,13 +25,3 @@ Point::~Point()
 {
 
 }
-
-Fixed Point::getX() const
-{
-	return x;
-}
-
-Fixed Point::getY() const
-{
-	return y;
-}
