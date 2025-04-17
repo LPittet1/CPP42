@@ -25,3 +25,12 @@ Point::~Point()
 {
 
 }
+
+const Fixed Point::getX() const
+{
+	return x;
+}
+const Fixed Point::getY() const
+{
+	return y;
+}
