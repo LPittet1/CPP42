@@ -4,17 +4,13 @@
 
 class ScavTrap : public ClapTrap
 {
-private:
-	/* data */
 public:
-	ScavTrap(/* args */);
+	ScavTrap();
+	ScavTrap(std::string name);
+	ScavTrap(ScavTrap& cpy);
+	ScavTrap& operator=(ScavTrap& rhs);
 	~ScavTrap();
+	void attack(const std::string& target);
+	void guardGate();
 };
 
-ScavTrap::ScavTrap(/* args */)
-{
-}
-
-ScavTrap::~ScavTrap()
-{
-}
