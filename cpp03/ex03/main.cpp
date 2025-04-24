@@ -10,6 +10,7 @@ int main()
 	d.beRepaired(1);
 	d.attack("Francois");
 	d.takeDamage(10);
+	d.guardGate();
 	d.highFivesGuys();
 	d.whoAmI();
 
@@ -17,12 +18,15 @@ int main()
 
 	DiamondTrap a;
 	std::cout << std::endl;
+
 	a = d;
+
 	std::cout << std::endl;
 	a.beRepaired(1);
 	a.attack("Francois");
 	a.takeDamage(10);
 	a.highFivesGuys();
+	a.guardGate();
 	a.whoAmI();
 	std::cout << std::endl;
 	for (int i = 0; i < 50; i++)
