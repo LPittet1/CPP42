@@ -1,5 +1,4 @@
 #pragma once
-
 #include "ClapTrap.hpp"
 
 class FragTrap: virtual public ClapTrap
@@ -11,4 +10,5 @@ public:
 	FragTrap& operator=(FragTrap& rhs);
 	~FragTrap();
 	void highFivesGuys(void);
+	void attack(const std::string& target);
 };
