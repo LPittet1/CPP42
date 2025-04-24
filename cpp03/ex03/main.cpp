@@ -29,8 +29,9 @@ int main()
 	a.guardGate();
 	a.whoAmI();
 	std::cout << std::endl;
-	for (int i = 0; i < 50; i++)
-	{
-		a.attack("Pierre");
-	}
+	// std::cout << std::endl;
+	// for (int i = 0; i < 50; i++)
+	// {
+	// 	a.attack("Pierre");
+	// }
 }
