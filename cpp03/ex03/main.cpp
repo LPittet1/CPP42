@@ -1,11 +1,32 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-	FragTrap frag("Estelle");
-	frag.beRepaired(1);
-	frag.attack("Francois");
-	frag.takeDamage(10);
-	frag.highFivesGuys();
+	DiamondTrap d("caillou");
+
+	std::cout << std::endl;
+	d.beRepaired(1);
+	d.attack("Francois");
+	d.takeDamage(10);
+	d.highFivesGuys();
+	d.whoAmI();
+
+	std::cout << std::endl;
+
+	DiamondTrap a;
+	std::cout << std::endl;
+	a = d;
+	std::cout << std::endl;
+	a.beRepaired(1);
+	a.attack("Francois");
+	a.takeDamage(10);
+	a.highFivesGuys();
+	a.whoAmI();
+	std::cout << std::endl;
+	for (int i = 0; i < 50; i++)
+	{
+		a.attack("Pierre");
+	}
 }

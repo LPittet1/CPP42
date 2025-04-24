@@ -15,6 +15,7 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavT
 DiamondTrap::DiamondTrap(DiamondTrap& cpy): ClapTrap(cpy), ScavTrap(cpy), FragTrap(cpy)
 {
 	std::cout << "DiamondTrap " << name << " copy constructor called" << std::endl;
+	name = cpy.name;
 }
 
 DiamondTrap& DiamondTrap::operator=(DiamondTrap& rhs)
@@ -23,8 +24,8 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap& rhs)
 	{
 		ScavTrap::operator=(rhs);
 		FragTrap::operator=(rhs);
+		std::cout << "DiamondTrap copy assigment operator called" << std::endl;
 		name = rhs.name;
-		std::cout << "DiamondTrap " << name << " copy constructor called" << std::endl;
 	}
 	return *this;
 }
