@@ -1,22 +1,21 @@
 #include "Point.hpp"
 
+Fixed	get_area(Point a, Point b, Point c)
+{
+	Fixed area = ((a.getX() - c.getX()) * (b.getY() - a.getY())
+				- (a.getX() - b.getX()) * (c.getY() - a.getY())) / 2;
+	return area > 0 ? area : area * -1;
+}
+
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	float wholeArea = (a.getX() * (b.getY() - c.getY())).toFloat()
-					+ (b.getX() * (c.getY() - a.getY())).toFloat()
-					+ (c.getX() * (a.getY() - b.getY())).toFloat();
-	float areaABP	= (a.getX() * (b.getY() - point.getY())).toFloat()
-					+ (b.getX() * (point.getY() - a.getY())).toFloat()
-					+ (point.getX() * (a.getY() - b.getY())).toFloat();
-	float areaACP	= (a.getX() * (point.getY() - c.getY())).toFloat()
-					+ (point.getX() * (c.getY() - a.getY())).toFloat()
-					+ (c.getX() * (a.getY() - point.getY())).toFloat();
-	float areaBCP	= (point.getX() * (b.getY() - c.getY())).toFloat()
-					+ (b.getX() * (c.getY() - point.getY())).toFloat()
-					+ (c.getX() * (point.getY() - b.getY())).toFloat();
+	Fixed wholeArea = get_area(a, b, c);
+	Fixed areaABP	= get_area(a, b, point);
+	Fixed areaACP	= get_area(a, point, c);
+	Fixed areaBCP	= get_area(point, b, c);
 	if (areaABP == 0 || areaACP == 0 || areaBCP == 0)
 		return false;
-	float totalArea = areaABP + areaACP + areaBCP;
+	Fixed totalArea = areaABP + areaACP + areaBCP;
 	if (totalArea != wholeArea)
 		return false;
 	return true;
