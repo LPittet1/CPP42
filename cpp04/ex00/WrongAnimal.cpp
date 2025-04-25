@@ -26,12 +26,12 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& rhs)
 	return *this;
 }
 
-void WrongAnimal::makeSound()
+void WrongAnimal::makeSound() const
 {
 	std::cout << "wrong animal does not make sound" << std::endl;
 }
 
-std::string WrongAnimal::getType()
+std::string WrongAnimal::getType() const
 {
 	return type;
 }

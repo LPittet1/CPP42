@@ -26,7 +26,12 @@ Animal::~Animal()
 	std::cout << "animal destructor" << std::endl;
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
 	std::cout << "animal make no defined sound" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+	return type;
 }

@@ -4,7 +4,7 @@
 Cat::Cat() 
 {
 	std::cout << "Cat constructor" << std::endl;
-	type = "cat";
+	type = "Cat";
 }
 
 Cat::Cat(const Cat& cpy) : Animal(cpy)
@@ -27,12 +27,7 @@ Cat::~Cat()
 	std::cout << "Cat destructor" << std::endl;
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
 	std::cout << "Meooooow" << std::endl; 
-}
-
-std::string Cat::getType()
-{
-	return type;
 }
