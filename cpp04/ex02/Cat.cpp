@@ -10,7 +10,12 @@ Cat::Cat()
 
 Cat::Cat(const Cat& cpy) : Animal(cpy)
 {
+	brain = new Brain();
 	std::cout << "Cat copy" << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		this->brain->addIdea(cpy.brain->getIdeas(i));
+	}
 }
 
 Cat& Cat::operator=(const Cat& rhs)
@@ -19,6 +24,10 @@ Cat& Cat::operator=(const Cat& rhs)
 	{
 		Animal::operator=(rhs);
 		std::cout << "Cat assignment operator" << std::endl;
+		for (int i = 0; i < 100; i++)
+		{
+			this->brain->addIdea(rhs.brain->getIdeas(i));
+		}
 	}
 	return *this;
 }
