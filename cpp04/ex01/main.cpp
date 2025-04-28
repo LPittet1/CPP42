@@ -5,47 +5,41 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << "type of the dog : " << j->getType() << " " << std::endl;
-	std::cout << "Type of the cat : " << i->getType() << " " << std::endl;
-	std::cout << "Cat sound ";
-	i->makeSound();
-	std::cout << "Dog sound ";
-	j->makeSound();
-	meta->makeSound();
+	size_t size = 10;
+	Animal* animals[size];
 
-	std::cout << std::endl << "COPY CONSTRUCTOR TESTS" << std::endl << std::endl;
+	for (size_t i = 0; i < size; i++)
+	{
+		if (i % 2)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+	for (size_t i = 0; i < size; i++)
+	{
+		std::cout << animals[i]->getType() << std::endl;
+		delete animals[i];
+	}
 
-	Dog t;
-	const Animal* cp = new Dog(t);
+	Dog *d = new Dog();
+	d->getBrain()->addIdea("idea 1");
+	Dog dog(*d);
+	Dog a;
+	dog.getBrain()->addIdea("new idea");
+	a = dog;
+	d->getBrain()->printIdeas();
+	delete d;
+	a.getBrain()->addIdea("a super idea");
 
-	std::cout << "type of the copy dog : " << cp->getType() << " " << std::endl;
-	std::cout << "Dog copy sound ";
-	cp->makeSound();
+	std::cout << std::endl << "dog ideas" << std::endl;
+	dog.getBrain()->printIdeas();
 
-	std::cout << std::endl << "WRONG ANIMAL TESTS" << std::endl << std::endl;
+	std::cout << std::endl << "a ideas" << std::endl;
+	a.getBrain()->printIdeas();
 
-	const WrongAnimal* wa = new WrongAnimal();
-	const WrongAnimal* wc = new WrongCat();
-	WrongCat tac;
+	Dog *test = new Dog(a);
+	std::cout << std::endl << "test ideas" << std::endl;
+	test->getBrain()->printIdeas();
 
-	std::cout << "type of the wrong cat (animal): " << wc->getType() << " " << std::endl;
-	std::cout << "type of the wrong cat : " << tac.getType() << " " << std::endl;
-	std::cout << "Wrong cat (animal) sound : ";
-	wc->makeSound();
-	std::cout << "Wrong cat sound : ";
-	tac.makeSound();
-	std::cout << "Wrong animal sound : ";
-	wa->makeSound();
-
-	std::cout << std::endl;
-
-	delete meta;
-	delete j;
-	delete i;
-	delete cp;
-	delete wa;
-	delete wc;
+	delete test;
 }

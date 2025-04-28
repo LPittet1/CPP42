@@ -26,9 +26,9 @@ Brain& Brain::operator=(const Brain& rhs)
 	return *this;
 }
 
-std::string* Brain::getIdeas()
+std::string Brain::getIdeas(int i)
 {
-	return ideas;
+	return ideas[i];
 }
 
 void Brain::addIdea(std::string idea)
@@ -48,6 +48,7 @@ void Brain::printIdeas() const
 {
 	for (int i = 0; i < 100; i++)
 	{
-		std::cout << "Idea " << i << ": " << ideas[i] << std::endl;
+		if (!ideas[i].empty())
+			std::cout << "Idea " << i << ": " << ideas[i] << std::endl;
 	}
 }

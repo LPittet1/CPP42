@@ -10,7 +10,7 @@ public:
 	Brain(const Brain& cpy);
 	Brain& operator=(const Brain& rhs);
 	~Brain();
-	std::string* getIdeas();
+	std::string getIdeas(int i);
 	void addIdea(std::string idea);
 	void printIdeas() const;
 };

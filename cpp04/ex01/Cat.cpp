@@ -5,6 +5,7 @@ Cat::Cat()
 {
 	std::cout << "Cat constructor" << std::endl;
 	type = "Cat";
+	brain = new Brain();
 }
 
 Cat::Cat(const Cat& cpy) : Animal(cpy)
@@ -24,10 +25,16 @@ Cat& Cat::operator=(const Cat& rhs)
 
 Cat::~Cat()
 {
+	delete brain;
 	std::cout << "Cat destructor" << std::endl;
 }
 
 void Cat::makeSound() const
 {
 	std::cout << "Meooooow" << std::endl; 
+}
+
+Brain* Cat::getBrain() const
+{
+	return brain;
 }
