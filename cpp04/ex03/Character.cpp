@@ -46,7 +46,6 @@ Character::~Character()
 	{
 		if (inventory[i])
 		{
-			std::cout << inventory[i] << std::endl;
 			delete inventory[i];
 			inventory[i] = 0;
 		}
