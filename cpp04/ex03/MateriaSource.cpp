@@ -49,6 +49,8 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria* m)
 {
+	if (!m)
+		return;
 	if (count < 4)
 		templ[count++] = m;
 	else

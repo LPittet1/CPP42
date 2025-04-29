@@ -64,6 +64,7 @@ void invalid_arguments_test()
 {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
+	src->learnMateria(0);
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
