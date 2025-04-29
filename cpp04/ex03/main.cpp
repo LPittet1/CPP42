@@ -60,10 +60,36 @@ void assignment_operator_test()
 	delete src;
 }
 
+void invalid_arguments_test()
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	tmp = src->createMateria("nonexistant");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->unequip(-1);
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+}
+
 int main()
 {
-	subject_provided_test();
+	//subject_provided_test();
 	//copy_constructor_test();
 	//assignment_operator_test();
+	invalid_arguments_test();
 	return 0;
 }

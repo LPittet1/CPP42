@@ -51,6 +51,11 @@ void MateriaSource::learnMateria(AMateria* m)
 {
 	if (count < 4)
 		templ[count++] = m;
+	else
+	{
+		delete m;
+		std::cout << "This MateriaSource cannot learn more Materias" << std::endl;
+	}
 }
 
 AMateria* MateriaSource::createMateria(const std::string& type)
@@ -60,5 +65,6 @@ AMateria* MateriaSource::createMateria(const std::string& type)
 		if (type == templ[i]->getType())
 			return templ[i]->clone();
 	}
+	std::cout << "MateriaSource does not know this type of Materia" << std::endl;
 	return 0;
 }

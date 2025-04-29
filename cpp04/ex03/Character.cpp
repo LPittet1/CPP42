@@ -72,6 +72,11 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
+	if (idx < 0 || idx > 3)
+	{
+		std::cout << "Unequip index out of range" << std::endl;
+		return;
+	}
 	if (!inventory[idx])
 		return;
 	droppedItems.add_back(inventory[idx]);
