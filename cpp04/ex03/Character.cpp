@@ -87,12 +87,3 @@ void Character::use(int idx, ICharacter& target)
 	if (inventory[idx])
 		inventory[idx]->use(target);
 }
-
-void Character::printInvAdrr()
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (inventory[i])
-			std::cout << name << " : " << inventory[i] << std::endl;
-	}
-}

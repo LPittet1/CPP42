@@ -23,6 +23,6 @@ class Character: public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
-		void printInvAdrr();
+
 };
 #endif 
