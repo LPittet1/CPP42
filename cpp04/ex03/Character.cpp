@@ -59,6 +59,8 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria *m)
 {
+	if (!m)
+		return;
 	for (int i = 0; i < 4; i++)
 	{
 		if (!inventory[i])
@@ -67,6 +69,9 @@ void Character::equip(AMateria *m)
 			return;
 		}
 	}
+	AMateria *tmp = m;
+	delete tmp;
+	m = 0;
 	std::cout << "Inventory is full" << std::endl;
 }
 
@@ -86,6 +91,11 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
+	if (idx < 0 || idx > 3)
+	{
+		std::cout << "Use index out of range" << std::endl;
+		return;
+	}
 	if (!inventory[idx])
 		std::cout << "No spell in this slot" << std::endl;
 	if (inventory[idx])

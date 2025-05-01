@@ -37,6 +37,7 @@ void copy_constructor_test()
 	Character copy(me);
 	me.unequip(0);
 	me.use(0, copy);
+	me.~Character();
 	copy.use(0, me);
 	delete src;
 }
@@ -56,6 +57,7 @@ void assignment_operator_test()
 	copy = me;
 	me.unequip(0);
 	me.use(0, copy);
+	me.~Character();
 	copy.use(0, me);
 	delete src;
 }
@@ -77,10 +79,17 @@ void invalid_arguments_test()
 	me->equip(tmp);
 	tmp = src->createMateria("nonexistant");
 	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->unequip(-1);
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->use(-1, *bob);
 	delete bob;
 	delete me;
 	delete src;

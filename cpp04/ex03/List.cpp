@@ -13,7 +13,8 @@ List::~List()
 	{
 		Node* tmp = mat;
 		mat = mat->next;
-		delete tmp;
+		if (tmp)
+			delete tmp;
 	}
 }
 
