@@ -37,7 +37,6 @@ void copy_constructor_test()
 	Character copy(me);
 	me.unequip(0);
 	me.use(0, copy);
-	me.~Character();
 	copy.use(0, me);
 	delete src;
 }
@@ -57,7 +56,6 @@ void assignment_operator_test()
 	copy = me;
 	me.unequip(0);
 	me.use(0, copy);
-	me.~Character();
 	copy.use(0, me);
 	delete src;
 }
@@ -98,8 +96,8 @@ void invalid_arguments_test()
 int main()
 {
 	//subject_provided_test();
-	//copy_constructor_test();
+	copy_constructor_test();
 	//assignment_operator_test();
-	invalid_arguments_test();
+	//invalid_arguments_test();
 	return 0;
 }
