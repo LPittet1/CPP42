@@ -66,10 +66,10 @@ std::ostream& operator<<(std::ostream& os, Bureaucrat& b)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Bureaucrat grade too high";
+	return "Grade too high";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Bureaucrat grade too low";
+	return "Grade too low";
 }
