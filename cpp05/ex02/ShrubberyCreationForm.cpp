@@ -1,27 +1,63 @@
 
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
+#include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 145, 137), target("default")
 {
-	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
+	
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cpy)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
-	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
+	
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cpy): AForm("ShrubberyCreationForm", 145, 137), target(cpy.target)
+{
+
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs)
 {
 	if (this != &rhs)
 	{
-		std::cout << "ShrubberyCreationForm assignment operator called" << std::endl;
+		AForm::operator=(rhs);
+		target = rhs.target;
 	}
 	return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
+
+}
+
+void ShrubberyCreationForm::beExecuted() const
+{
+	std::ofstream file((target + "_shrubbery").c_str());
+	if (!file)
+		throw FileCreationException();
+	for (int i = 0; i < 3; i++)
+	{
+			file << "\n\
+				     .{{}}}}}}.									 .{{}}}}}}.\n\
+				    {{{{{{(`)}}}.								{{{{{{(`)}}}.\n\
+				   {{{(`)}}}}}}}}}					   {{{(`)}}}}}}}}}\n\
+				  }}}}}}}}}{{(`){{{				  	}}}}}}}}}{{(`){{{\n\
+				  }}}}{{{{(`)}}{{{{				  	}}}}{{{{(`)}}{{{{\n\
+ 				 {{{(`)}}}}}}}{}}}}} 				 {{{(`)}}}}}}}{}}}}}\n\
+				{{{{{{{{(`)}}}}}}}}}}				{{{{{{{{(`)}}}}}}}}}}\n\
+				{{{{{{{}{{{{(`)}}}}}}				{{{{{{{}{{{{(`)}}}}}}\n\
+				 {{{{{(`)   {{{{(`)}'				 {{{{{(`)   {{{{(`)}'\n\
+				  `\"\"'\" |   | \"'\"'`				 	  `\"\"'\" |   | \"'\"'`\n\
+				  (`)  /     \\				  		  (`)  /     \\\n\
+ 				 ~~~~~~~~~~~~~~~~~~~ 				 ~~~~~~~~~~~~~~~~~~~";
+	}
+	file.close();
+}
+
+const char* ShrubberyCreationForm::FileCreationException::what() const throw()
+{
+	return "Error creating file";
 }

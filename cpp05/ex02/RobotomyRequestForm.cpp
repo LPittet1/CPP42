@@ -1,27 +1,45 @@
 
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
+#include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm()
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45), target("default")
 {
-	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
+	
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& cpy)
+RobotomyRequestForm::RobotomyRequestForm(std::string& target): AForm("RobotomyRequestForm", 72, 45), target(target)
 {
-	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
+
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& cpy): AForm("RobotomyRequestForm", 72, 45), target(cpy.target)
+{
+	
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& rhs)
 {
 	if (this != &rhs)
 	{
-		std::cout << "RobotomyRequestForm assignment operator called" << std::endl;
+		AForm::operator=(rhs);
+		target = rhs.target;
 	}
 	return *this;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "RobotomyRequestForm destructor called" << std::endl;
+	
+}
+
+void RobotomyRequestForm::beExecuted() const
+{
+	if (std::rand() % 2)
+	{
+		std::cout << "bbzzzzzzzzzzzz bbrrrrrrr" << std::endl;
+		std::cout << target << " has been robotomized" << std::endl;
+	}
+	else
+		std::cout << "Failed to robotomize " << target << std::endl;
 }

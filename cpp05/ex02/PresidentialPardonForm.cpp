@@ -2,26 +2,37 @@
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-PresidentialPardonForm::PresidentialPardonForm()
+PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 25, 5), target("default")
 {
-	std::cout << "PresidentialPardonForm default constructor called" << std::endl;
+	
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cpy)
+PresidentialPardonForm::PresidentialPardonForm(std::string& target): AForm("PresidentialPardonForm", 25, 5), target(target)
 {
-	std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
+
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cpy): AForm("PresidentialPardonForm", 25, 5), target(cpy.target)
+{
+	
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs)
 {
 	if (this != &rhs)
 	{
-		std::cout << "PresidentialPardonForm assignment operator called" << std::endl;
+		AForm::operator=(rhs);
+		target = rhs.target;
 	}
 	return *this;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << "PresidentialPardonForm destructor called" << std::endl;
+
+}
+
+void PresidentialPardonForm::beExecuted() const
+{
+	std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
