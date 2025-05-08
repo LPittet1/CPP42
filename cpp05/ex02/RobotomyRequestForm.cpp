@@ -36,8 +36,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void RobotomyRequestForm::beExecuted() const
 {
-	time_t time;
-	std::srand(std::time(&time));
+	std::srand(std::time(0));
 	if (std::rand() % 2)
 	{
 		std::cout << "bbzzzzzzzzzzzz bbrrrrrrr" << std::endl;
