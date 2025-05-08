@@ -2,6 +2,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 
 
@@ -10,44 +11,53 @@ void testPresidentialPardonForm()
 	Bureaucrat weak("Etienne", 150);
 	Bureaucrat s("Horace", 25);
 	Bureaucrat e("Selien", 4);
-	PresidentialPardonForm pf("Julien");
+	Intern inter;
+	AForm* form;
 
-	e.executeForm(pf);
-	weak.signForm(pf);
-	s.signForm(pf);
-	weak.executeForm(pf);
-	s.executeForm(pf);
-	e.executeForm(pf);
+	form = inter.makeForm("wrong form", "Julien");
+	form = inter.makeForm("presidential pardon", "Julien");
+	e.executeForm(*form);
+	weak.signForm(*form);
+	s.signForm(*form);
+	weak.executeForm(*form);
+	s.executeForm(*form);
+	e.executeForm(*form);
 }
 
 void testRobotomyRequestForm()
 {
 	Bureaucrat weak("Etienne", 150);
-	Bureaucrat s("Horace", 72);
-	Bureaucrat e("Selien", 45);
-	RobotomyRequestForm rf("Julien");
+	Bureaucrat s("Horace", 25);
+	Bureaucrat e("Selien", 4);
+	Intern inter;
+	AForm* form;
 
-	e.executeForm(rf);
-	weak.signForm(rf);
-	s.signForm(rf);
-	weak.executeForm(rf);
-	s.executeForm(rf);
-	e.executeForm(rf);
+	form = inter.makeForm("wrong form", "Julien");
+	form = inter.makeForm("robotomy request", "Julien");
+	e.executeForm(*form);
+	weak.signForm(*form);
+	s.signForm(*form);
+	weak.executeForm(*form);
+	s.executeForm(*form);
+	e.executeForm(*form);
 }
 
 void testShrubberyCreationForm()
 {
 	Bureaucrat weak("Etienne", 150);
-	Bureaucrat s("Horace", 140);
-	Bureaucrat e("Selien", 100);
-	ShrubberyCreationForm sf("Julien");
+	Bureaucrat s("Horace", 25);
+	Bureaucrat e("Selien", 4);
+	Intern inter;
+	AForm* form;
 
-	e.executeForm(sf);
-	weak.signForm(sf);
-	s.signForm(sf);
-	weak.executeForm(sf);
-	s.executeForm(sf);
-	e.executeForm(sf);
+	form = inter.makeForm("wrong form", "Julien");
+	form = inter.makeForm("shrubbery creation", "Julien");
+	e.executeForm(*form);
+	weak.signForm(*form);
+	s.signForm(*form);
+	weak.executeForm(*form);
+	s.executeForm(*form);
+	e.executeForm(*form);
 }
 
 
@@ -55,7 +65,7 @@ int main()
 {
 	// testPresidentialPardonForm();
 	// std::cout << std::endl;
-	testRobotomyRequestForm();
+	// testRobotomyRequestForm();
 	// std::cout << std::endl;
-	// testShrubberyCreationForm();
+	testShrubberyCreationForm();
 }

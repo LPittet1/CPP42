@@ -21,4 +21,4 @@ class ShrubberyCreationForm: public AForm
 			const char* what() const throw();
 		};
 };
-#endif 
+#endif
