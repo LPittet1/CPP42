@@ -69,6 +69,7 @@ void convertChar(const std::string& str)
 	printChar(str[0]);
 	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
 	std::cout << std::setprecision(5);
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << static_cast<float>(str[0]) << std::endl;
 	std::cout << "double: " << static_cast<double>(str[0]) << std::endl;
 }
@@ -81,6 +82,7 @@ void convertInt(const std::string& str)
 	else
 		printChar(v);
 	std::cout << "int: " << v << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << static_cast<float>(v) << std::endl;
 	std::cout << "double: " << static_cast<double>(v) << std::endl;
 }
@@ -92,6 +94,7 @@ void convertFloat(const std::string& str)
 		std::cout << "char: impossible" << std::endl;
 	else printChar(f);
 	std::cout << "int: " << static_cast<int>(f) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << f << std::endl;
 	std::cout << "double: " << static_cast<double>(f) << std::endl;
 }
@@ -103,6 +106,7 @@ void convertDouble(const std::string& str)
 		std::cout << "char: impossible" << std::endl;
 	else printChar(d);
 	std::cout << "int: " << static_cast<int>(d) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << static_cast<float>(d) << std::endl;
 	std::cout << "double: " << d << std::endl;
 }
