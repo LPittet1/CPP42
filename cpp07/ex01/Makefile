@@ -1,4 +1,4 @@
-NAME = template
+NAME = iter
 
 CPP = c++
 
