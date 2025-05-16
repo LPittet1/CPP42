@@ -68,9 +68,8 @@ void convertChar(const std::string& str)
 {
 	printChar(str[0]);
 	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
-	std::cout << std::setprecision(5);
 	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "float: " << static_cast<float>(str[0]) << std::endl;
+	std::cout << "float: " << static_cast<float>(str[0]) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(str[0]) << std::endl;
 }
 
@@ -83,7 +82,7 @@ void convertInt(const std::string& str)
 		printChar(v);
 	std::cout << "int: " << v << std::endl;
 	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "float: " << static_cast<float>(v) << std::endl;
+	std::cout << "float: " << static_cast<float>(v) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(v) << std::endl;
 }
 
@@ -92,22 +91,29 @@ void convertFloat(const std::string& str)
 	float f = std::atof(str.c_str());
 	if (!isascii(f))
 		std::cout << "char: impossible" << std::endl;
-	else printChar(f);
-	std::cout << "int: " << static_cast<int>(f) << std::endl;
-	std::cout << std::fixed << std::setprecision(1);
+	else 
+		printChar(f);
+	if (f < INT_MIN || f > INT_MAX)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(f) << std::endl;
+	if (static_cast<int>(f) == static_cast<double>(f))
+		std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << f << std::endl;
 	std::cout << "double: " << static_cast<double>(f) << std::endl;
 }
 
 void convertDouble(const std::string& str)
 {
-	float d = std::strtod(str.c_str(), 0);
+	double d = std::strtod(str.c_str(), 0);
 	if (!isascii(d))
 		std::cout << "char: impossible" << std::endl;
 	else printChar(d);
-	std::cout << "int: " << static_cast<int>(d) << std::endl;
-	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "float: " << static_cast<float>(d) << std::endl;
+	if (d < INT_MIN || d > INT_MAX)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(d) << std::endl;
+	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double: " << d << std::endl;
 }
 
@@ -122,7 +128,7 @@ void convertSpecialFloat(const std::string& str)
 
 void convertSpecialDouble(const std::string& str)
 {
-	float d = std::strtod(str.c_str(), 0);
+	double d = std::strtod(str.c_str(), 0);
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 	std::cout << "float: " << static_cast<float>(d) << std::endl;
