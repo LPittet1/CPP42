@@ -51,8 +51,8 @@ int main(int, char**)
     }
 	numbers[0] = 42;
 	mirror[1] = 89;
-	std::cout << numbers[0] << " " << numbers[1] << std::endl;
 	std::cout << mirror[0] << " " << mirror[1] << std::endl;
     delete [] mirror;//
+	std::cout << numbers[0] << " " << numbers[1] << std::endl;
     return 0;
 }
