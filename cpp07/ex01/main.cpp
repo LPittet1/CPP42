@@ -1,20 +1,18 @@
 #include "iter.hpp"
-#include <iostream>
-#include <cmath>
 
 int main()
 {
 	std::string test[10];
+	std::string const cotest[10] = {"a","b","c","d","e","f","g","h","i","j"};
 	double testint[10];
 	for (int i = 0; i < 10; i++)
 	{
 		test[i] = 'a' + i;
 		testint[i] = i;
-		std::cout << test[i] << std::endl;
-		std::cout << testint[i] << std::endl;
 	}
 	iter(test, 10, doub);
-	iter(testint, 10, sqrt);
+	iter(cotest, 10, print);
+	iter(testint, 4, doub);
 	for (int i = 0; i < 10; i++)
 	{
 		std::cout << test[i] << std::endl;
