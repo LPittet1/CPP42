@@ -13,9 +13,6 @@ int main()
 	iter(test, 10, doub);
 	iter(cotest, 10, print);
 	iter(testint, 4, doub);
-	for (int i = 0; i < 10; i++)
-	{
-		std::cout << test[i] << std::endl;
-		std::cout << testint[i] << std::endl;
-	}
+	iter(test, 10, print);
+	iter(testint, 10, print);
 }
