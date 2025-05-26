@@ -59,3 +59,25 @@ int Span::longestSpan(void) const
 		throw std::logic_error("Not enough elements to get a span");
 	return *std::max_element(cont.begin(), cont.end()) - *std::min_element(cont.begin(), cont.end());
 }
+
+unsigned int Span::getN() const
+{
+	return N;
+}
+
+std::vector<int> Span::getCont(void) const
+{
+	return cont;
+}
+ 
+std::ostream& operator<<(std::ostream& os, const Span& span)
+{
+	for (unsigned int i = 0; i < span.getN(); i++)
+	{
+		os << span.getCont()[i];
+		if (i + 1 != span.getN())
+			std::cout << ", ";
+	}
+	std::cout << std::endl;
+	return os;
+}

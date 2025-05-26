@@ -25,6 +25,8 @@ class Span
 			for (typename T::iterator it = vals.begin(); it != vals.end(); it++)
 				addNumber(*it);
 		}
+		unsigned int getN(void) const;
+		std::vector<int> getCont(void) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Span& span);
