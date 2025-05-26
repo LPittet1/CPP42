@@ -19,14 +19,14 @@ class Span
 		int shortestSpan(void) const;
 		int longestSpan(void) const;
 		void addNumber(int val);
-		template <typename T>
-		void addNumber(T vals)
-		{
-			for (typename T::iterator it = vals.begin(); it != vals.end(); it++)
-				addNumber(*it);
-		}
 		unsigned int getN(void) const;
 		std::vector<int> getCont(void) const;
+		template <typename T>
+		void addNumber(T begin,T end)
+		{
+			for (T it = begin; it != end; it++)
+				addNumber(*it);
+		}
 };
 
 std::ostream& operator<<(std::ostream& os, const Span& span);

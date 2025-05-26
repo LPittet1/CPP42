@@ -27,9 +27,8 @@ void adding_range(void)
 	{
 		li.push_back(std::rand());
 	}
-	sp.addNumber(li);
+	sp.addNumber(li.begin(), li.end());
 
-	std::cout << sp << std::endl;
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 }
@@ -38,6 +37,5 @@ int main()
 {
 	subject_provided_test();
 	adding_range();
-	
 	return 0;
 }
