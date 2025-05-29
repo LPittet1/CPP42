@@ -23,8 +23,12 @@ class Date
 		bool operator>=(const Date& rhs) const;
 		bool operator==(const Date& rhs) const;
 		bool operator!=(const Date& rhs) const;
+		int getYear(void) const;
+		int getMonth(void) const;
+		int getDay(void) const;
 };
 
-std::map<Date, int> createDB(std::istream& input);
+std::ostream& operator<<(std::ostream& os, const Date& date);
+std::map<Date, double> createDB(std::istream& input);
 
 #endif 

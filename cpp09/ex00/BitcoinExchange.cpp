@@ -48,9 +48,9 @@ bool Date::operator<(const Date& rhs) const
 			{
 				return false;
 			}
-			return month != rhs.month;
+			return month == rhs.month && year == rhs.year;
 		}
-		return year != rhs.year;
+		return year == rhs.year;
 	}
 	return true;
 }
@@ -65,9 +65,9 @@ bool Date::operator>(const Date& rhs) const
 			{
 				return false;
 			}
-			return month != rhs.month;
+			return month == rhs.month && year == rhs.year;
 		}
-		return year != rhs.year;
+		return year == rhs.year;
 	}
 	return true;
 }
@@ -87,11 +87,45 @@ bool Date::operator>=(const Date& rhs) const
 	return operator==(rhs) || operator>(rhs);
 }
 
-std::map<Date, int> createDB(std::istream& input)
+int Date::getYear(void) const
+{
+	return year;
+}
+
+int Date::getMonth(void) const
+{
+	return month;
+}
+
+int Date::getDay(void) const
+{
+	return day;
+}
+
+std::ostream& operator<<(std::ostream& os, const Date& date)
+{
+	os << date.getYear() << '-' << std::setw(2) << std::setfill('0') <<  date.getMonth() << '-' << std::setw(2) << std::setfill('0')<< date.getDay();
+	return os;
+}
+
+std::map<Date, double> createDB(std::istream& input)
 {
 	std::string str;
+	int year;
+	int month;
+	int day;
+	double value;
+	char separator;
+	std::map<Date, double> DB;
+
+	std::getline(input, str);
 	while (std::getline(input, str))
 	{
-		
+		input >> year >> separator >> month >> separator >> day;
+		Date temp(year, month, day);
+		input >> separator >> value;
+		std::pair<Date, double> pair(temp, value);
+		DB.insert(pair);
 	}
+	return DB;
 }
