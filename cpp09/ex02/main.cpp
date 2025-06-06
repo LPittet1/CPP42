@@ -45,10 +45,10 @@ int main(int ac, char **av)
 		if (it + 1 != vect.end())
 			std::cout << " ";
 	}
-	std::cout << std::endl << "Time to process a range of " << ac;
+	std::cout << std::endl << "Time to process a range of " << ac - 1;
 	std::cout << " elements with std::vector: " << timeVectorEnd - timeVectorStart;
 	std::cout << "CPU clock tick or " << 1000.0 * (timeVectorEnd - timeVectorStart) / CLOCKS_PER_SEC << "ms";
-	std::cout << std::endl << "Time to process a range of " << ac;
+	std::cout << std::endl << "Time to process a range of " << ac - 1;
 	std::cout << " elements with std::deque: " << timeDequeEnd - timeDequeStart;
 	std::cout << "CPU clock tick or " << 1000.0 * (timeDequeEnd - timeDequeStart) / CLOCKS_PER_SEC << "ms";
 }
