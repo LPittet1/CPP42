@@ -16,7 +16,7 @@ void divideVect(std::vector<int>& vect, long unsigned int size)
 {
 	std::vector<int>::iterator firstElem = vect.begin() + (size / 2) - 1;
 	std::vector<int>::iterator secondElem = vect.begin() + size - 1;
-	while (firstElem + size < vect.end())
+	while (firstElem + size <= vect.end())
 	{
 		if (*firstElem > *secondElem)
 			std::swap_ranges(firstElem - (size / 2 - 1), secondElem - size / 2 + 1, secondElem - size/2 + 1);
@@ -40,7 +40,7 @@ void divideDeq(std::deque<int>& deq, long unsigned int size)
 {
 	std::deque<int>::iterator firstElem = deq.begin() + (size / 2) - 1;
 	std::deque<int>::iterator secondElem = deq.begin() + size - 1;
-	while (firstElem + size < deq.end())
+	while (firstElem + size <= deq.end())
 	{
 		if (*firstElem > *secondElem)
 			std::swap_ranges(firstElem - (size / 2 - 1), secondElem - size / 2 + 1, secondElem - size / 2 + 1);
