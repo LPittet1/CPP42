@@ -11,11 +11,6 @@ int main(int ac, char **av)
 		std::cout << "No arguments given." << std::endl;
 		return 1;
 	}
-	if (ac == 2)
-	{
-		std::cout << maxNumberOfComparison(std::atoi(av[1]));
-		return 0;
-	}
 	for (int i = 1; i < ac; i++)
 	{
 		long val = std::strtol(av[i], 0 , 10);

@@ -14,6 +14,7 @@
 std::vector<int> PmergeVect(int ac, char **av);
 std::deque<int>  PmergeDeque(int ac, char **av);
 int maxNumberOfComparison(int numVal);
+int jacobstahl(int level);
 
 
 #endif
